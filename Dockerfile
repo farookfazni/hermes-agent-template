@@ -46,7 +46,7 @@ RUN apt-get update && \
 # and bricks the session on Anthropic's non-retryable 400. We bake it in.
 # When bumping HERMES_REF, re-check hermes-agent's pyproject.toml [all] and
 # the extras below against the new release's pyproject.toml.
-RUN git clone --depth 1 --branch ${HERMES_REF} https://github.com/farookfazni/hermes-agent-template.git /opt/hermes-agent && \
+RUN git clone --depth 1 --branch ${HERMES_REF} https://github.com/NousResearch/hermes-agent.git /opt/hermes-agent && \
     cd /opt/hermes-agent && \
     uv pip install --system --no-cache -e ".[all,messaging,tts-premium,honcho,bedrock,anthropic,edge-tts,hindsight,vision]" && \
     cd /opt/hermes-agent/web && \
